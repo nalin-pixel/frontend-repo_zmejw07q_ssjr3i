@@ -3,418 +3,474 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Red Rabbit Labs – KI-Automatisierung & Custom AI Development</title>
-    <meta name="description" content="Red Rabbit Labs automatisiert Prozesse für Österreichs Mittelstand. Audit, Architektur, Integration, Wartung – DSGVO-konform und enterprise-ready." />
+    <title>Red Rabbit Labs – Intelligenz, die Werte schafft.</title>
+    <meta name="description" content="Red Rabbit Labs entwickelt High‑End KI‑Automatisierung für regulierte Branchen in Österreich – sicher, DSGVO‑konform, engineering‑getrieben." />
 
-    <!-- Futuristische, performante Systemschrift + Inter als Akzent -->
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-      :root {
-        --bg: #0a0a0a; /* Deep charcoal */
-        --bg-2: #111113;
-        --text: #e6e6e6;
-        --muted: #a1a1aa;
-        --card: rgba(255, 255, 255, 0.04);
-        --border: rgba(255, 255, 255, 0.08);
-        --red: #ff3b30; /* Neon Red */
-        --red-weak: rgba(255, 59, 48, 0.25);
-        --glow: 0 0 0.5rem rgba(255,59,48,0.55), 0 0 1.25rem rgba(255,59,48,0.35);
-        --radius: 14px;
-        --blur: 12px;
-        --maxw: 1200px;
+      :root{
+        --bg: #0b0c10;           /* Obsidian */
+        --bg-2:#101217;          /* Deep navy-charcoal */
+        --text:#ffffff;          /* Pure white */
+        --muted:#a0a0a0;         /* Subtle gray */
+        --red:#D92626;           /* Red Rabbit Rot */
+        --border:rgba(255,255,255,.08);
+        --card:rgba(255,255,255,.03);
+        --glass:rgba(20,22,28,.45);
+        --blur:14px;
+        --radius:16px;
+        --maxw:1180px;
+        --shadow-lg:0 20px 60px rgba(0,0,0,.45);
+        --shadow-sm:0 8px 26px rgba(0,0,0,.35);
       }
 
-      * { box-sizing: border-box; }
-      html, body { height: 100%; }
-      body {
-        margin: 0;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-        color: var(--text);
-        background: radial-gradient(1200px 800px at 80% -10%, rgba(255,59,48,0.06), transparent 60%),
-                    radial-gradient(900px 700px at -10% 20%, rgba(255,59,48,0.05), transparent 55%),
-                    linear-gradient(180deg, #050505, var(--bg));
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+      /* Base */
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif; color:var(--text);
+        background:
+          radial-gradient(900px 600px at 85% -10%, rgba(217,38,38,.06), transparent 55%),
+          radial-gradient(700px 420px at -10% 15%, rgba(217,38,38,.05), transparent 60%),
+          linear-gradient(180deg, #090a0e 0%, var(--bg) 100%);
+        -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; line-height:1.55;
       }
+      a{color:inherit;text-decoration:none}
+      .container{max-width:var(--maxw);padding:0 20px;margin:0 auto}
 
-      a { color: inherit; text-decoration: none; }
-      img { display: block; max-width: 100%; }
-      button { font: inherit; }
-
-      .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
-
-      /* Header */
-      .header {
-        position: sticky; top: 0; z-index: 50;
-        backdrop-filter: blur(var(--blur));
-        background: linear-gradient(180deg, rgba(10,10,10,0.75), rgba(10,10,10,0.35));
-        border-bottom: 1px solid var(--border);
-      }
-      .nav {
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 14px 0;
-      }
-      .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.06em; }
-      .brand-mark {
-        position: relative; width: 26px; height: 26px;
-        border-radius: 8px; background: linear-gradient(145deg, #1a1a1a, #0e0e0e); border: 1px solid var(--border);
-        box-shadow: inset 0 0 12px rgba(255,255,255,0.04);
-      }
-      .brand-mark::before, .brand-mark::after { /* Abstraktes Rabbit-Icon */
-        content: ""; position: absolute; top: 3px; left: 6px; width: 5px; height: 14px; border-radius: 2px; background: var(--red);
-        transform: rotate(-12deg);
-      }
-      .brand-mark::after { left: 14px; transform: rotate(12deg); }
-      .brand-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; margin-left: 6px; box-shadow: var(--glow); }
-      .brand-name { display: flex; align-items: center; gap: 6px; }
-      .nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; color: var(--muted); }
-      .nav-links a { position: relative; }
-      .nav-links a:hover { color: #fff; }
-      .nav-links a::after {
-        content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0; background: var(--red); transition: width .25s ease;
-        box-shadow: 0 0 6px rgba(255,59,48,.6);
-      }
-      .nav-links a:hover::after { width: 100%; }
-      .cta { padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(255,59,48,0.5); background: rgba(255,59,48,0.08); color: #fff;
-        box-shadow: 0 0 0 0 rgba(255,59,48,0.4); transition: transform .2s ease, box-shadow .35s ease, background .2s ease; }
-      .cta:hover { transform: translateY(-1px); background: rgba(255,59,48,0.12); box-shadow: 0 0 0 6px rgba(255,59,48,0.15), var(--glow); }
+      /* Header (discreet, focus on hero) */
+      header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(11,12,16,.7), rgba(11,12,16,.35));backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+      .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+      .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.06em}
+      .logo-mark{position:relative;width:28px;height:28px;border-radius:9px;background:linear-gradient(145deg,#0f1117,#0a0c10);border:1px solid var(--border);box-shadow:inset 0 0 12px rgba(255,255,255,.04)}
+      .logo-mark::before,.logo-mark::after{content:"";position:absolute;top:3px;left:7px;width:6px;height:16px;border-radius:2px;background:var(--red);transform:rotate(-12deg)}
+      .logo-mark::after{left:15px;transform:rotate(12deg)}
+      .brand .dot{width:7px;height:7px;border-radius:50%;background:var(--red);margin-left:6px;box-shadow:0 0 18px rgba(217,38,38,.55)}
+      .nav-links{display:flex;gap:22px;color:var(--muted);font-size:14px}
+      .nav-links a{position:relative}
+      .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--red);transition:width .25s ease}
+      .nav-links a:hover{color:#fff}
+      .nav-links a:hover::after{width:100%}
 
       /* Hero */
-      .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; padding: 64px 0 40px; }
-      .kicker { color: var(--muted); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
-      .headline { font-size: clamp(28px, 5vw, 54px); line-height: 1.05; font-weight: 800; margin: 10px 0 12px; }
-      .subline { color: #cfcfd3; font-size: clamp(15px, 1.6vw, 18px); max-width: 46ch; }
-      .hero-actions { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
-      .btn-primary { background: var(--red); color: #0a0a0a; border-radius: 999px; padding: 12px 18px; font-weight: 700; border: 1px solid #ff5a50; box-shadow: var(--glow); }
-      .btn-primary:hover { filter: brightness(1.06); transform: translateY(-1px); }
-      .btn-outline { background: transparent; color: #fff; border-radius: 999px; padding: 12px 18px; border: 1px solid var(--border); }
-      .btn-outline:hover { border-color: var(--red); box-shadow: var(--glow); }
+      .hero{position:relative;padding:96px 0 48px;overflow:visible}
+      .hero .title{font-size:clamp(28px,4.6vw,56px);line-height:1.05;font-weight:800;margin:6px 0 18px;letter-spacing:-.01em}
+      .hero .subtle{color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:12px}
 
-      /* Chat (Neural Interface) */
-      .chat {
-        position: relative; height: 520px; border-radius: var(--radius);
-        background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-        border: 1px solid var(--border); overflow: hidden;
-        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02), 0 20px 60px rgba(0,0,0,0.45);
+      /* Background data field (subtle) */
+      .field{position:absolute;inset:-80px -0 -0 -0;pointer-events:none;opacity:.5}
+      .nodes{position:absolute;inset:0;background:
+        radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.12) 30%, transparent 31%),
+        radial-gradient(2px 2px at 30% 60%, rgba(255,255,255,.12) 30%, transparent 31%),
+        radial-gradient(2px 2px at 60% 30%, rgba(255,255,255,.12) 30%, transparent 31%),
+        radial-gradient(2px 2px at 80% 70%, rgba(255,255,255,.12) 30%, transparent 31%),
+        radial-gradient(2px 2px at 45% 85%, rgba(255,255,255,.12) 30%, transparent 31%);
+        filter:blur(.3px)
       }
-      .chat::before { /* Glow Frame */
-        content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,59,48,0.15), inset 0 0 30px rgba(255,59,48,0.12);
+      .mesh{position:absolute;inset:0;background:
+        linear-gradient(130deg, rgba(217,38,38,.15), transparent 35%),
+        linear-gradient(320deg, rgba(217,38,38,.1), transparent 40%);
+        mix-blend-mode:screen;animation:breath 10s ease-in-out infinite alternate
       }
-      .chat-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--border); backdrop-filter: blur(var(--blur)); background: rgba(10,10,10,0.45); }
-      .status { font-size: 12px; color: var(--muted); }
-      .chat-body { height: 380px; overflow: auto; padding: 16px; scrollbar-width: thin; }
-      .msg { display: flex; gap: 10px; margin: 10px 0; }
-      .msg .bubble { max-width: 88%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(17,17,19,0.8); backdrop-filter: blur(var(--blur)); }
-      .msg.user { justify-content: flex-end; }
-      .msg.user .bubble { background: rgba(255,59,48,0.1); border-color: rgba(255,59,48,0.45); box-shadow: 0 0 0 1px rgba(255,59,48,0.1) inset; }
-      .msg.ai .bubble { border-color: rgba(255,255,255,0.07); }
-      .typing { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--red); box-shadow: var(--glow); animation: pulse 1s ease-in-out infinite; }
-      @keyframes pulse { 0%,100%{ transform: scale(0.9); opacity:.6 } 50%{ transform: scale(1.1); opacity:1 } }
+      @keyframes breath{from{opacity:.35;transform:scale(1)}to{opacity:.6;transform:scale(1.02)}}
 
-      .chat-input { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 12px; border-top: 1px solid var(--border); background: linear-gradient(180deg, rgba(10,10,10,0.35), rgba(10,10,10,0.65)); }
-      .chat-input input {
-        background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: #fff; padding: 12px 14px; border-radius: 12px; outline: none; transition: border-color .2s ease, box-shadow .2s ease;
-      }
-      .chat-input input:focus { border-color: var(--red); box-shadow: var(--glow); }
-      .send { background: var(--red); color: #0a0a0a; border: none; border-radius: 12px; padding: 12px 16px; font-weight: 700; cursor: pointer; box-shadow: var(--glow); }
-      .send:hover { filter: brightness(1.06); }
+      /* Morphing Chat Bar */
+      .chat-shell{position:relative;margin-top:26px}
+      .chat-bar{position:relative;display:flex;align-items:center;gap:10px;background:var(--glass);backdrop-filter:blur(var(--blur));border:1px solid var(--border);border-radius:999px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+      .chat-dot{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 12px rgba(217,38,38,.6)}
+      .chat-input{flex:1;background:transparent;border:none;color:#fff;outline:none;font-size:16px;padding:4px 2px}
+      .chat-cta{background:transparent;border:1px solid var(--border);color:#fff;border-radius:999px;padding:10px 14px;cursor:pointer}
+      .chat-cta:hover{border-color:var(--red)}
 
-      /* Trust Marquee */
-      .marquee-wrap { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02); }
-      .marquee { display: flex; gap: 60px; padding: 16px 0; white-space: nowrap; will-change: transform; animation: scroll 24s linear infinite; }
-      .marquee span { color: #f1f1f1; opacity: .9; letter-spacing: .04em; font-weight: 600; }
-      .marquee span::before { content: "•"; color: var(--red); margin: 0 20px; opacity:.7 }
-      @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      .chat-panel{position:absolute;left:0;right:0;top:100%;margin-top:12px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));border:1px solid var(--border);box-shadow:var(--shadow-lg);overflow:hidden;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .25s ease, transform .25s ease}
+      .chat-shell.open .chat-panel{opacity:1;transform:translateY(0);pointer-events:auto}
+      .chat-messages{max-height:260px;overflow:auto;padding:14px}
+      .msg{display:flex;gap:10px;margin:10px 0}
+      .bubble{max-width:85%;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:rgba(16,18,23,.85)}
+      .msg.user{justify-content:flex-end}
+      .msg.user .bubble{background:rgba(217,38,38,.08);border-color:rgba(217,38,38,.45)}
+      .msg.ai .bubble{border-color:rgba(255,255,255,.08)}
+      .typing{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--red);animation:pulse 1s ease-in-out infinite}
+      @keyframes pulse{0%,100%{transform:scale(.9);opacity:.6}50%{transform:scale(1.12);opacity:1}}
 
-      /* Services Grid */
-      .section { padding: 72px 0; }
-      .section h2 { font-size: clamp(22px, 3vw, 34px); margin-bottom: 12px; }
-      .section p.lead { color: #c8c8cc; margin-bottom: 28px; }
-      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-      .card {
-        position: relative; border: 1px solid var(--border); background: var(--card); border-radius: var(--radius); padding: 18px; backdrop-filter: blur(var(--blur));
-        transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-      }
-      .card:hover { transform: translateY(-4px); border-color: rgba(255,59,48,0.6); box-shadow: var(--glow); }
-      .card h3 { margin: 6px 0 8px; font-size: 18px; }
-      .card p { color: #cacad0; }
+      /* Docked mini bar on scroll */
+      .dock{position:fixed;left:50%;transform:translateX(-50%) scale(.98);bottom:16px;width:min(720px,92vw);z-index:60;transition:transform .25s ease, opacity .25s ease}
+      .dock .chat-bar{padding:12px 14px}
+      .dock .chat-input{font-size:15px}
+      .dock.hide{opacity:0;transform:translateX(-50%) translateY(10px) scale(.96)}
 
-      /* Timeline */
-      .timeline { position: relative; margin-top: 18px; }
-      .timeline::before { content: ""; position: absolute; left: 18px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, rgba(255,59,48,0.7), rgba(255,59,48,0.15)); box-shadow: 0 0 10px rgba(255,59,48,0.35); }
-      .step { position: relative; display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding: 18px 0; }
-      .dot { position: relative; width: 12px; height: 12px; border-radius: 50%; background: var(--red); box-shadow: var(--glow); margin-top: 4px; border: 2px solid rgba(255,255,255,0.15); }
-      .step h4 { margin: 0 0 4px; }
-      .step p { color: #c8c8cc; margin: 0; }
+      /* Sections */
+      section{padding:80px 0;border-top:1px solid var(--border)}
+      .section-title{font-size:clamp(22px,3.2vw,34px);margin:0 0 10px}
+      .lead{color:#cfd0d2;margin:0 0 24px}
+
+      /* Trust */
+      .trust{padding:48px 0;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00))}
+      .trust .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+      .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.02)}
+      .logos{display:flex;gap:28px;flex-wrap:wrap;color:#b8b9bd}
+
+      /* Bento grid */
+      .bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:120px;gap:16px}
+      .tile{position:relative;border:1px solid var(--border);background:var(--card);backdrop-filter:blur(var(--blur));border-radius:14px;padding:16px;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+      .tile:hover{transform:translateY(-3px);border-color:rgba(217,38,38,.55);box-shadow:0 0 0 1px rgba(217,38,38,.15), 0 10px 28px rgba(0,0,0,.35)}
+      .tile h3{margin:0 0 6px;font-size:18px}
+      .tile p{margin:0;color:#cdd0d3}
+      .tile .hint{position:absolute;right:12px;bottom:10px;color:#a9aaae;font-size:12px;opacity:.9}
+      .t1{grid-column:span 3;grid-row:span 2}
+      .t2{grid-column:span 3;grid-row:span 1}
+      .t3{grid-column:span 2;grid-row:span 1}
+      .t4{grid-column:span 2;grid-row:span 2}
+      .t5{grid-column:span 2;grid-row:span 1}
+      .t6{grid-column:span 3;grid-row:span 1}
+
+      /* Icons (minimal) */
+      .icon{width:22px;height:22px;border:1px solid var(--border);border-radius:6px;display:inline-block;margin-right:8px;position:relative}
+      .icon::after{content:"";position:absolute;inset:6px;border-radius:3px;background:rgba(217,38,38,.2)}
+      .tile:hover .icon::after{background:rgba(217,38,38,.35)}
+
+      /* Engineering vs Scripting */
+      .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+      .panel{border:1px solid var(--border);background:var(--card);backdrop-filter:blur(var(--blur));border-radius:14px;padding:18px}
+      .panel h3{margin:0 0 8px}
+      .code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13.5px; line-height:1.5; white-space:pre-wrap; background:#0e1117; border-radius:12px; border:1px solid #1b2230; padding:14px; color:#e6edf3}
+      .kw{color:#ff7b72}
+      .fn{color:#d2a8ff}
+      .co{color:#8b949e}
+      .st{color:#a5d6ff}
+      .nu{color:#79c0ff}
+
+      /* FAQ */
+      .faq{max-width:880px}
+      details{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:12px 14px}
+      details+details{margin-top:10px}
+      summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between}
+      summary::marker{display:none}
+      .caret{width:18px;height:18px;border:1px solid var(--border);border-radius:6px;display:grid;place-items:center;color:#b8bcc2}
+      details[open] .caret{border-color:var(--red);color:#fff}
 
       /* Footer */
-      footer { border-top: 1px solid var(--border); padding: 36px 0; color: #c7c7cb; background: linear-gradient(180deg, rgba(10,10,10,0.35), rgba(10,10,10,0.65)); }
-      .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
-      .footer-links { display: flex; gap: 18px; color: #d7d7db; }
-      .footer-links a { color: #d7d7db; }
-      .footer-links a:hover { color: #fff; }
+      footer{border-top:1px solid var(--border);padding:36px 0;color:#c7c8cb;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00))}
+      .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+      .foot a{color:#d9dadd}
+      .foot a:hover{color:#fff}
 
-      /* Responsiveness */
-      @media (max-width: 980px) { .hero { grid-template-columns: 1fr; } .chat { order: -1; height: 440px; } .chat-body{ height: 300px; } }
-      @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } .nav-links { display: none; } }
-      @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; text-align: center; justify-items: center; } }
+      /* Scroll reveal */
+      .reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease, transform .5s ease}
+      .reveal.in{opacity:1;transform:none}
 
-      /* Reduced motion */
-      @media (prefers-reduced-motion: reduce) { .marquee { animation: none; } .typing { animation: none; } .card, .cta, .btn-primary { transition: none; } }
+      /* Responsive */
+      @media (max-width:980px){.split{grid-template-columns:1fr}.bento{grid-template-columns:repeat(4,1fr);grid-auto-rows:120px}.t1{grid-column:span 4}.t2{grid-column:span 2}.t3{grid-column:span 2}.t4{grid-column:span 2}.t5{grid-column:span 2}.t6{grid-column:span 4}}
+      @media (max-width:640px){header .nav-links{display:none}.hero{padding-top:72px}.dock{width:94vw}.tile{padding:14px}}
+      @media (prefers-reduced-motion:reduce){.mesh{animation:none}.reveal{transition:none}.chat-panel{transition:none}}
     </style>
   </head>
   <body>
-    <header class="header">
+    <header>
       <div class="container nav">
-        <a href="#" class="brand" aria-label="Startseite">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-name">RED RABBIT LABS<span class="brand-dot" aria-hidden="true"></span></span>
+        <a class="brand" href="#top" aria-label="Startseite">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span>RED RABBIT LABS<span class="dot" aria-hidden="true"></span></span>
         </a>
         <nav class="nav-links" aria-label="Hauptnavigation">
-          <a href="#loesungen">Lösungen</a>
-          <a href="#prozess">Prozess</a>
-          <a href="#about">Über uns</a>
+          <a href="#kompetenzen">Kompetenzen</a>
+          <a href="#engineering">Engineering</a>
+          <a href="#faq">FAQ</a>
         </nav>
-        <a href="#audit" class="cta">Audit Buchen</a>
       </div>
     </header>
 
-    <main>
+    <main id="top">
       <!-- Hero -->
-      <section class="container hero" id="top" aria-labelledby="hero-title">
-        <div>
-          <p class="kicker">KI-Automatisierung • DSGVO-konform • Enterprise-ready</p>
-          <h1 class="headline" id="hero-title">Wir automatisieren Österreichs Mittelstand.</h1>
-          <p class="subline">Von intelligenter Prozess-Automatisierung bis zur Entwicklung eigener KI‑Sprachmodelle. Red Rabbit Labs verwandelt manuelle Prozesse in digitale Wertschöpfung.</p>
-          <div class="hero-actions">
-            <a class="btn-primary" href="#audit">Analyse Starten</a>
-            <a class="btn-outline" href="#stack">Tech Stack</a>
-          </div>
+      <section class="hero">
+        <div class="field" aria-hidden="true">
+          <div class="nodes"></div>
+          <div class="mesh"></div>
         </div>
-        <div>
-          <div class="chat" role="region" aria-label="Neural Interface – Chat">
-            <div class="chat-header">
-              <div class="typing" aria-hidden="true"></div>
-              <div>
-                <div style="font-weight:700">Neural Interface</div>
-                <div class="status">Bereit – Fragen Sie nach Anwendungsfällen, Aufwand oder Kosten</div>
-              </div>
+        <div class="container">
+          <p class="subtle">Digital Sovereignty</p>
+          <h1 class="title">Intelligenz, die Werte schafft.</h1>
+
+          <!-- Morphing Chat -->
+          <div class="chat-shell" id="chat-shell">
+            <div class="chat-bar" role="search" aria-label="KI Anfrage">
+              <span class="chat-dot" aria-hidden="true"></span>
+              <input id="query" class="chat-input" type="text" autocomplete="off" placeholder="Wie kann KI meine Kanzlei effizienter machen?" aria-label="Ihre Frage an die KI" />
+              <button class="chat-cta" id="ask">Fragen</button>
             </div>
-            <div class="chat-body" id="chat-body" aria-live="polite"></div>
-            <div class="chat-input">
-              <input id="chat-input" type="text" placeholder="Ihre Frage eingeben… (z. B. Arzt, Anwalt, Kosten)" aria-label="Chat-Eingabe" />
-              <button class="send" id="chat-send" aria-label="Senden">Senden</button>
+            <div class="chat-panel" id="chat-panel" aria-live="polite">
+              <div class="chat-messages" id="chat-messages"></div>
             </div>
+          </div>
+
+          <p class="lead" style="max-width:60ch;margin-top:18px;color:#cfd1d6">Wir entwickeln KI‑Automatisierung für regulierte Branchen – sicher, DSGVO‑konform und in Österreich gehostet. Präzision statt Spielerei.</p>
+        </div>
+      </section>
+
+      <!-- Trust -->
+      <section class="trust">
+        <div class="container">
+          <div class="row reveal">
+            <span class="badge">Entwickelt für regulierte Branchen</span>
+            <span class="badge">DSGVO‑konform</span>
+            <span class="badge">In Österreich gehostet</span>
+          </div>
+          <div class="logos" style="margin-top:16px">
+            <span>Microsoft</span> <span>OpenAI</span> <span>Python</span> <span>Azure</span> <span>AWS</span>
           </div>
         </div>
       </section>
 
-      <!-- Trust Marquee -->
-      <div class="marquee-wrap" aria-hidden="false">
-        <div class="marquee" id="marquee">
-          <span>OpenAI Enterprise</span>
-          <span>Python</span>
-          <span>LangChain</span>
-          <span>Make.com</span>
-          <span>Zapier</span>
-          <span>Azure</span>
-          <span>AWS</span>
-          <span>OpenAI Enterprise</span>
-          <span>Python</span>
-          <span>LangChain</span>
-          <span>Make.com</span>
-          <span>Zapier</span>
-          <span>Azure</span>
-          <span>AWS</span>
-        </div>
-      </div>
-
-      <!-- Services -->
-      <section class="section" id="loesungen">
+      <!-- Kompetenzen Bento -->
+      <section id="kompetenzen">
         <div class="container">
-          <h2>Lösungen für Branchen</h2>
-          <p class="lead">Glassmorphism‑Cards, entwickelt für Hochleistung und Klarheit. Jede Lösung ist praxiserprobt und integrierbar in bestehende Systeme.</p>
-          <div class="grid" role="list">
-            <article class="card" role="listitem">
-              <h3>Gesundheitswesen</h3>
-              <p>Praxis‑Effizienz & Patienten‑Service. Automatisierte Befund‑Voranalysen.</p>
+          <h2 class="section-title">Kompetenzfelder</h2>
+          <p class="lead">Bento‑Layout für Klarheit – jedes Feld steht für eine echte Wirkung in der Praxis.</p>
+          <div class="bento reveal">
+            <article class="tile t1" tabindex="0">
+              <h3><span class="icon" aria-hidden="true"></span>Gesundheitswesen</h3>
+              <p>Patienten‑Datenschutz, Entlastung im Alltag: Befund‑Voranalyse, Termin‑Triaging, sichere Dokumentenflüsse.</p>
+              <span class="hint">Mehr Effizienz in der Praxis</span>
             </article>
-            <article class="card" role="listitem">
-              <h3>Recht & Steuern</h3>
-              <p>Kanzlei‑Intelligenz. Dokumentenprüfung und Fristen‑Workflows automatisiert.</p>
+            <article class="tile t2" tabindex="0">
+              <h3><span class="icon" aria-hidden="true"></span>Recht</h3>
+              <p>Dokumenten‑Analyse, Präzedenzfall‑Suche und Fristen‑Workflows – mit auditierbarer Nachvollziehbarkeit.</p>
+              <span class="hint">Präzision und Kontrolle</span>
             </article>
-            <article class="card" role="listitem">
-              <h3>Handel & E‑Commerce</h3>
-              <p>Smarter Support. Chatbots, die Kundenanfragen wirklich lösen.</p>
+            <article class="tile t3" tabindex="0">
+              <h3><span class="icon" aria-hidden="true"></span>Handel</h3>
+              <p>Automatisierter Support, Retouren‑Klärung, Empfehlungen – direkt im bestehenden Stack.</p>
+              <span class="hint">Service, der löst</span>
             </article>
-            <article class="card" role="listitem">
-              <h3>Handwerk & Produktion</h3>
-              <p>Auftragsabwicklung. Vom Aufmaß zur Rechnung ohne Papier.</p>
+            <article class="tile t4" tabindex="0">
+              <h3><span class="icon" aria-hidden="true"></span>Handwerk</h3>
+              <p>Von Anfrage bis Rechnung: Aufmaß, Dispo und Nachkalkulation als digitale Prozess‑Kette.</p>
+              <span class="hint">Durchgängigkeit</span>
             </article>
-            <article class="card" role="listitem">
-              <h3>Immobilien</h3>
-              <p>Exposé‑Versand & Lead‑Qualifizierung 24/7.</p>
+            <article class="tile t5" tabindex="0">
+              <h3><span class="icon" aria-hidden="true"></span>Immobilien</h3>
+              <p>Lead‑Qualifizierung 24/7, Exposé‑Versand, Termine – integriert in CRM und Kalender.</p>
+              <span class="hint">Mehr Abschlussrate</span>
             </article>
-            <article class="card" role="listitem">
-              <h3>Gastronomie</h3>
-              <p>Reservierungen & Personalplanung per KI.</p>
+            <article class="tile t6" tabindex="0">
+              <h3><span class="icon" aria-hidden="true"></span>Gastronomie</h3>
+              <p>Resourcing & Planung: Reservierungen, Dienstpläne, Einkauf – datenbasiert und zuverlässig.</p>
+              <span class="hint">Planbarkeit</span>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- How it works -->
-      <section class="section" id="prozess">
+      <!-- Engineering vs Scripting -->
+      <section id="engineering">
         <div class="container">
-          <h2>So funktioniert es</h2>
-          <p class="lead">Von der ersten Analyse bis zur laufenden Evolution – transparent, messbar, sicher.</p>
-          <div class="timeline" aria-label="Schritte">
-            <div class="step">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <h4>1. Audit (Analyse)</h4>
-                <p>Wir identifizieren Automatisierungspotenziale und definieren klare Ziele – inklusive Datenschutz‑Check.</p>
-              </div>
+          <h2 class="section-title">Engineering vs. Scripting</h2>
+          <p class="lead">Wir bauen keine Baukasten‑Automationen. Wir liefern Engineering – stabil, skalierbar und prüfbar.</p>
+          <div class="split reveal">
+            <div class="panel">
+              <h3>Standard Automation</h3>
+              <p style="color:#cfd0d2">Make / Zapier / API‑Konfigurationen – schnell, gut für einfache Flüsse. Wir nutzen sie, wo sinnvoll.</p>
+              <ul style="margin:10px 0 0 18px;color:#cfd0d2">
+                <li>Formular → CRM → E‑Mail</li>
+                <li>Webhooks & einfache Datenablagen</li>
+                <li>Benachrichtigungen & Tickets</li>
+              </ul>
             </div>
-            <div class="step">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <h4>2. Blueprint (Architektur)</h4>
-                <p>Zielbild und technische Architektur – mit Auswahl der passenden KI‑Modelle und Integrationen.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <h4>3. Integration (Development)</h4>
-                <p>Implementierung in bestehende Systeme, inklusive Tests, Monitoring und Schulung.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <h4>4. Evolution (Wartung)</h4>
-                <p>Kontinuierliche Verbesserung – Modelle, Datapipelines und Prozesse werden laufend optimiert.</p>
-              </div>
+            <div class="panel">
+              <h3>Custom AI Engineering</h3>
+              <pre class="code" aria-label="Python‑Beispiel"><span class="co"># Extrahiert strukturierte Daten aus einem PDF‑Dokument</span>
+<span class="kw">from</span> <span class="nu">pydantic</span> <span class="kw">import</span> <span class="fn">BaseModel</span>
+<span class="kw">class</span> <span class="fn">Befund</span>(<span class="fn">BaseModel</span>):
+    patient: <span class="st">str</span>
+    diagnose: <span class="st">str</span>
+    icd10: <span class="st">str</span>
+
+<span class="kw">def</span> <span class="fn">extract</span>(pdf_path: <span class="st">str</span>) -&gt; <span class="fn">Befund</span>:
+    <span class="co"># OCR, Chunking, Prompt‑Tuning – DSGVO‑konform</span>
+    text = <span class="fn">read_pdf</span>(pdf_path)
+    fields = <span class="fn">llm</span>.<span class="fn">structurize</span>(text, schema=<span class="fn">Befund</span>)
+    <span class="kw">return</span> <span class="fn">Befund</span>(**fields)
+
+<span class="kw">if</span> __name__ == <span class="st">"__main__"</span>:
+    result = <span class="fn">extract</span>(<span class="st">"/daten/befund.pdf"</span>)
+    <span class="fn">store</span>(result, table=<span class="st">"befunde"</span>)
+</pre>
+              <p style="color:#cfd0d2;margin-top:10px">Python, Vektor‑Suche, Evaluation, Observability. Auditierbare Pipelines statt Blackbox.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- About anchor placeholder -->
-      <section class="section" id="about">
+      <!-- FAQ -->
+      <section id="faq">
         <div class="container">
-          <h2 id="stack">Tech Stack & Compliance</h2>
-          <p class="lead">Python, LLM‑Orchestrierung (z. B. LangChain), sicher gehostet auf Azure/AWS – mit Fokus auf DSGVO‑Konformität und On‑Premise‑Optionen.</p>
-        </div>
-      </section>
-
-      <!-- Audit CTA -->
-      <section class="section" id="audit">
-        <div class="container">
-          <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
-            <div>
-              <h2>Audit Buchen</h2>
-              <p class="lead">Starten Sie mit einer präzisen Analyse Ihrer Prozesse. Wir liefern in 10 Werktagen einen umsetzbaren Blueprint.</p>
-            </div>
-            <a class="btn-primary" href="#top" style="white-space:nowrap">Jetzt anfragen</a>
+          <h2 class="section-title">FAQ</h2>
+          <div class="faq reveal">
+            <details>
+              <summary><span>Sind unsere Daten sicher?</span><span class="caret">▸</span></summary>
+              <div style="margin-top:10px;color:#cfd0d2">Ja. Projekte laufen DSGVO‑konform, optional On‑Premise. Zugriff, Logs und Modelle werden auf Ihre Compliance ausgerichtet.</div>
+            </details>
+            <details>
+              <summary><span>Behalten wir die Kontrolle?</span><span class="caret">▸</span></summary>
+              <div style="margin-top:10px;color:#cfd0d2">Sie behalten volle Datenhoheit. Jede Pipeline ist dokumentiert und auditierbar – mit klaren Freigaben und Rollenkonzept.</div>
+            </details>
+            <details>
+              <summary><span>Lohnt sich das für KMUs?</span><span class="caret">▸</span></summary>
+              <div style="margin-top:10px;color:#cfd0d2">In den meisten Fällen ja: Wir starten mit einem Audit und zeigen innerhalb von 10 Werktagen belastbare ROI‑Hebel.</div>
+            </details>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="container footer-grid">
-        <div>© <span id="year"></span> Red Rabbit Labs Wien</div>
-        <div class="footer-links">
-          <a href="#audit">Kontakt</a>
+      <div class="container foot">
+        <div>© <span id="year"></span> Red Rabbit Labs • Wien</div>
+        <div style="display:flex;gap:16px">
           <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
         </div>
       </div>
     </footer>
 
+    <!-- Sticky mini chat bar (cloned) -->
+    <div id="dock" class="dock hide" aria-hidden="true"></div>
+
     <script>
-      // Helper: set year
+      // Year
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      // Chat simulation
-      const bodyEl = document.getElementById('chat-body');
-      const inputEl = document.getElementById('chat-input');
-      const sendEl = document.getElementById('chat-send');
+      // Typewriter rotating placeholders
+      const query = document.getElementById('query');
+      const placeholders = [
+        'Wie kann KI meine Kanzlei effizienter machen?',
+        'Wie entlaste ich meine Praxis mit KI?',
+        'Lohnt sich Automatisierung für unsere Produktion?',
+        'Wie qualifiziere ich Immobilien‑Leads automatisch?'
+      ];
+      let phIndex = 0, charIndex = 0, typing = true;
+      function typeLoop(){
+        if(document.activeElement === query) return; // don’t type when user focuses
+        const current = placeholders[phIndex];
+        if(typing){
+          charIndex++;
+          query.setAttribute('placeholder', current.slice(0, charIndex));
+          if(charIndex === current.length){ typing = false; setTimeout(typeLoop, 1400); return; }
+          setTimeout(typeLoop, 38);
+        } else {
+          charIndex--;
+          query.setAttribute('placeholder', current.slice(0, charIndex));
+          if(charIndex === 0){ typing = true; phIndex = (phIndex + 1) % placeholders.length; }
+          setTimeout(typeLoop, 18);
+        }
+      }
+      setTimeout(typeLoop, 900);
 
-      const addMessage = (text, who = 'ai') => {
-        const wrap = document.createElement('div');
-        wrap.className = 'msg ' + (who === 'user' ? 'user' : 'ai');
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble';
-        bubble.textContent = text;
-        wrap.appendChild(bubble);
-        bodyEl.appendChild(wrap);
-        bodyEl.scrollTo({ top: bodyEl.scrollHeight, behavior: 'smooth' });
-      };
+      // Morphing chat open/close & simulated answers
+      const shell = document.getElementById('chat-shell');
+      const panel = document.getElementById('chat-panel');
+      const messages = document.getElementById('chat-messages');
+      const askBtn = document.getElementById('ask');
 
-      const keywordReply = (q) => {
+      function addMsg(text, who='ai'){
+        const row = document.createElement('div');
+        row.className = 'msg ' + (who === 'user' ? 'user' : 'ai');
+        const bub = document.createElement('div');
+        bub.className = 'bubble';
+        bub.textContent = text;
+        row.appendChild(bub);
+        messages.appendChild(row);
+        messages.scrollTo({top: messages.scrollHeight, behavior:'smooth'});
+      }
+
+      function answerFor(q){
         const t = q.toLowerCase();
-        if (t.includes('arzt') || t.includes('praxis') || t.includes('klin')) {
-          return 'Für Ärzt:innen automatisieren wir Befund‑Voranalysen, Terminmanagement und telefonische Anfragen. Ergebnis: weniger Wartezeiten, mehr Zeit am Patienten.';
+        if(t.includes('kanzlei') || t.includes('anwalt') || t.includes('recht')){
+          return [
+            'Dokumenten‑Analyse mit Nachvollziehbarkeit, Fristen‑Workflows und Akten‑Routing – vollständig auditierbar.',
+            'Option: On‑Premise‑Betrieb und Verschlüsselung ruhender Daten.']
         }
-        if (t.includes('anwalt') || t.includes('kanzlei') || t.includes('recht')) {
-          return 'Für Kanzleien implementieren wir Dokumentenprüfung, Akten‑Routing und Fristen‑Workflows. DSGVO‑konform, on‑premise möglich.';
+        if(t.includes('praxis') || t.includes('arzt') || t.includes('gesund')){
+          return [
+            'Termin‑Triaging, Befund‑Voranalysen und Telefon‑Assistenten reduzieren Wartezeiten spürbar.',
+            'Datenhoheit bleibt bei Ihnen – wir integrieren in bestehende Praxis‑Software.']
         }
-        if (t.includes('kosten') || t.includes('preis') || t.includes('budget')) {
-          return 'Ein typisches Einstiegs‑Projekt startet ab 8.000–25.000 € (Audit + Blueprint + MVP). Wir liefern binnen 10 Werktagen klare ROI‑Hebel.';
+        if(t.includes('produktion') || t.includes('industrie') || t.includes('fertigung')){
+          return [
+            'Prozess‑Kette vom Aufmaß bis zur Rechnung, plus Qualitäts‑Checks und Lager‑Prognosen.',
+            'Wir kombinieren Sensor‑Daten mit LLM‑Logik für robuste Abläufe.']
         }
-        if (t.includes('industrie') || t.includes('produktion') || t.includes('fertigung')) {
-          return 'In der Industrie digitalisieren wir vom Aufmaß bis zur Rechnung, inklusive Qualitäts‑Checks und Lager‑Prognosen.';
+        if(t.includes('immobilien')){
+          return [
+            'Lead‑Qualifizierung 24/7, Exposé‑Versand und Terminabstimmung – direkt mit Ihrem CRM verknüpft.',
+            'Sichtbarer Effekt in der Conversion nach 4–6 Wochen.']
         }
-        if (t.includes('e-commerce') || t.includes('handel') || t.includes('shop')) {
-          return 'Im Handel steigern wir den Service mit KI‑Assistenten, die Retouren, Tracking und Beratung wirklich lösen.';
+        return [
+          'Wir starten mit einem Audit und liefern binnen 10 Werktagen einen umsetzbaren Blueprint.',
+          'Sicherheit, Datenhoheit und ROI stehen im Zentrum jeder Implementierung.'
+        ];
+      }
+
+      function openPanel(){ shell.classList.add('open'); }
+      function send(){
+        const v = query.value.trim(); if(!v) return;
+        openPanel(); addMsg(v, 'user'); query.value = '';
+        // typing indicator
+        const typingRow = document.createElement('div'); typingRow.className='msg ai';
+        const bubble = document.createElement('div'); bubble.className='bubble';
+        bubble.innerHTML = '<span class="typing"></span> <span style="margin-left:8px;color:#cfd0d2">schreibt…</span>';
+        typingRow.appendChild(bubble); messages.appendChild(typingRow); messages.scrollTop = messages.scrollHeight;
+        setTimeout(()=>{ typingRow.remove(); answerFor(v).forEach((line,i)=> setTimeout(()=> addMsg(line,'ai'), i*220)); }, 700);
+      }
+
+      query.addEventListener('focus', openPanel);
+      askBtn.addEventListener('click', send);
+      query.addEventListener('keydown', e=>{ if(e.key==='Enter'){ send(); }});
+
+      // Docking behavior on scroll
+      const dock = document.getElementById('dock');
+      function ensureDock(){
+        if(!dock.firstChild){
+          // clone the bar only (not panel) for persistent access
+          const clone = document.querySelector('.chat-bar').cloneNode(true);
+          dock.appendChild(clone);
+          const cInput = clone.querySelector('input');
+          const cBtn = clone.querySelector('button');
+          cBtn.addEventListener('click', ()=>{
+            // forward to main UI
+            query.focus();
+            window.scrollTo({ top: document.querySelector('.chat-shell').getBoundingClientRect().top + window.scrollY - 120, behavior:'smooth'});
+          });
+          cInput.addEventListener('focus', ()=>{
+            query.focus();
+            window.scrollTo({ top: document.querySelector('.chat-shell').getBoundingClientRect().top + window.scrollY - 120, behavior:'smooth'});
+          });
         }
-        if (t.includes('immobilien')) {
-          return 'Für Immobilienunternehmen automatisieren wir Exposé‑Versand, Terminabstimmung und Lead‑Qualifizierung rund um die Uhr.';
+      }
+      ensureDock();
+
+      const hero = document.querySelector('.hero');
+      function onScroll(){
+        const rect = hero.getBoundingClientRect();
+        const threshold = 120; // when top has scrolled past
+        if(rect.bottom < window.innerHeight - threshold){
+          dock.classList.remove('hide');
+        } else {
+          dock.classList.add('hide');
         }
-        return 'Wir kombinieren Prozess‑Audit, passende KI‑Modelle und saubere Integration. Beschreiben Sie kurz Ihren Anwendungsfall – wir skizzieren den schnellsten Weg zum Mehrwert.';
-      };
+      }
+      document.addEventListener('scroll', onScroll, { passive:true });
+      onScroll();
 
-      const send = () => {
-        const v = inputEl.value.trim();
-        if (!v) return;
-        addMessage(v, 'user');
-        inputEl.value = '';
-
-        const typingWrap = document.createElement('div');
-        typingWrap.className = 'msg ai';
-        const typingBubble = document.createElement('div');
-        typingBubble.className = 'bubble';
-        typingBubble.innerHTML = '<span class="typing"></span> <span style="margin-left:8px;color:#c8c8cc">schreibt…</span>';
-        typingWrap.appendChild(typingBubble);
-        bodyEl.appendChild(typingWrap);
-        bodyEl.scrollTo({ top: bodyEl.scrollHeight, behavior: 'smooth' });
-
-        setTimeout(() => {
-          typingWrap.remove();
-          addMessage(keywordReply(v), 'ai');
-        }, 1000);
-      };
-
-      sendEl.addEventListener('click', send);
-      inputEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(); });
-
-      // Seed welcome messages
-      addMessage('Willkommen bei Red Rabbit Labs. Fragen Sie nach Branchen, Aufwand oder Kosten.');
-      addMessage('Beispiel: "Kosten", "Arzt", "Anwalt", "Industrie" …');
-
-      // Duplicate marquee content for seamless loop if needed
-      (function ensureMarqueeLoop(){
-        const m = document.getElementById('marquee');
-        const clone = m.cloneNode(true);
-        m.parentElement.appendChild(clone);
-        clone.style.paddingLeft = '40px';
-      })();
+      // Scroll‑triggered reveal
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+      }, { threshold:.18 });
+      document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
     </script>
   </body>
 </html>
